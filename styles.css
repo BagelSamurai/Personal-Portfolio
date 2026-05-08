@@ -1,0 +1,721 @@
+/* ═══════════════════════════════════════════════════════════════
+   Rohan Chaudhary — Portfolio Stylesheet
+   Light · Minimalist · Modern
+   Fonts: Clash Display (headings) · Archivo (body)
+   ═══════════════════════════════════════════════════════════════ */
+
+/* ─── DESIGN TOKENS ────────────────────────────────────── */
+:root {
+    /* Surfaces */
+    --bg: #fafaf7;
+    --bg-card: #ffffff;
+    --bg-subtle: #f4f3ef;
+    --bg-hover: #efeee9;
+
+    /* Borders */
+    --border: #e7e5dc;
+    --border-mid: #d6d3c8;
+
+    /* Text */
+    --text: #18181b;
+    --text-2: #3f3f46;
+    --muted: #71716e;
+    --muted-2: #9a9892;
+
+    /* Accent — Blue */
+    --accent: #2563eb; /* primary blue */
+    --accent-soft: #eef4ff; /* tinted bg */
+    --accent-2: #60a5fa; /* lighter blue */
+    --accent-deep: #1d4ed8; /* deeper blue */
+
+    /* Status */
+    --green: #2d7d46;
+
+    /* Effects */
+    --shadow-sm: 0 1px 2px rgba(24, 24, 27, 0.04);
+    --shadow:
+        0 1px 3px rgba(24, 24, 27, 0.06), 0 4px 12px rgba(24, 24, 27, 0.04);
+    --shadow-lg:
+        0 4px 8px rgba(24, 24, 27, 0.06), 0 16px 32px rgba(24, 24, 27, 0.08);
+
+    /* Geometry */
+    --radius-sm: 4px;
+    --radius: 8px;
+    --radius-lg: 12px;
+    --radius-pill: 999px;
+
+    /* Container */
+    --container: 860px;
+}
+
+/* ─── RESET ─────────────────────────────────────────────── */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+html {
+    scroll-behavior: smooth;
+}
+img,
+svg {
+    display: block;
+    max-width: 100%;
+}
+button {
+    font: inherit;
+    border: none;
+    background: none;
+    cursor: pointer;
+    color: inherit;
+}
+
+/* ─── BASE ──────────────────────────────────────────────── */
+body {
+    background-color: var(--bg);
+    color: var(--text);
+    font-family: "Archivo", sans-serif;
+    font-size: 1rem;
+    line-height: 1.7;
+    min-height: 100vh;
+    transition: background-color 0.3s ease;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+/* ─── LAYOUT WRAPPERS ───────────────────────────────────── */
+header,
+main,
+footer {
+    max-width: var(--container);
+    width: 100%;
+    margin: 0 auto;
+    padding-left: 1.75rem;
+    padding-right: 1.75rem;
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    gap: 5.5rem;
+    padding-top: 4rem;
+    padding-bottom: 6.5rem;
+}
+
+section {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+/* ─── ANIMATIONS ────────────────────────────────────────── */
+@keyframes fadeUp {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes pulse {
+    0%,
+    100% {
+        opacity: 1;
+        box-shadow: 0 0 0 0 rgba(45, 125, 70, 0.4);
+    }
+    50% {
+        opacity: 0.7;
+        box-shadow: 0 0 0 5px rgba(45, 125, 70, 0);
+    }
+}
+
+/* ═════════════════════════════════════════════════════════
+   HEADER
+   ═════════════════════════════════════════════════════════ */
+header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-top: 1.4rem;
+    padding-bottom: 1.4rem;
+    border-bottom: 1px solid var(--border);
+    position: sticky;
+    top: 0;
+    background: rgba(250, 250, 247, 0.85);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    z-index: 100;
+}
+
+.logo {
+    font-family: "Clash Display", sans-serif;
+    font-weight: 600;
+    font-size: 1.4rem;
+    color: var(--text);
+    text-decoration: none;
+    letter-spacing: -0.01em;
+}
+.logo span {
+    color: var(--accent);
+}
+
+nav {
+    display: flex;
+    gap: 1.25rem;
+    align-items: center;
+}
+nav a {
+    color: var(--muted);
+    font-size: 1.2rem;
+    text-decoration: none;
+    transition: color 0.15s ease;
+}
+nav a:hover {
+    color: var(--accent);
+}
+
+/* ═════════════════════════════════════════════════════════
+   INTRO
+   ═════════════════════════════════════════════════════════ */
+.intro-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: var(--accent-soft);
+    border: 1px solid var(--accent-2);
+    border-radius: var(--radius-pill);
+    padding: 0.3rem 0.95rem;
+    font-size: 0.78rem;
+    color: var(--accent-deep);
+    width: fit-content;
+    letter-spacing: 0.02em;
+    animation: fadeUp 0.5s ease both;
+}
+.intro-badge .dot {
+    width: 7px;
+    height: 7px;
+    background: var(--green);
+    border-radius: 50%;
+    display: inline-block;
+    animation: pulse 2s ease-in-out infinite;
+}
+
+.intro-header {
+    animation: fadeUp 0.5s ease 0.1s both;
+}
+.intro-header h1 {
+    font-family: "Clash Display", sans-serif;
+    font-weight: 600;
+    font-size: clamp(2.5rem, 6vw, 4rem);
+    color: var(--text);
+    line-height: 1.05;
+    letter-spacing: -0.025em;
+}
+.intro-header h1 em {
+    color: var(--accent);
+    font-style: normal;
+}
+
+.intro-role {
+    font-size: 0.85rem;
+    color: var(--muted);
+    margin-top: 0.7rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    font-weight: 400;
+}
+
+.intro-description {
+    max-width: 600px;
+    color: var(--text-2);
+    font-size: 1.05rem;
+    line-height: 1.75;
+    font-weight: 400;
+    animation: fadeUp 0.5s ease 0.2s both;
+}
+
+/* ─── BUTTONS ───────────────────────────────────────────── */
+.btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.6rem 1.2rem;
+    font-family: "Archivo", sans-serif;
+    font-size: 0.85rem;
+    font-weight: 400;
+    text-decoration: none;
+    cursor: pointer;
+    border: 1px solid var(--border-mid);
+    border-radius: var(--radius);
+    background: var(--bg-card);
+    color: var(--text);
+    transition: all 0.18s ease;
+    box-shadow: var(--shadow-sm);
+    letter-spacing: 0.005em;
+    white-space: nowrap;
+}
+.btn:hover {
+    background: var(--bg-hover);
+    border-color: var(--accent);
+    color: var(--accent);
+    box-shadow: var(--shadow);
+    transform: translateY(-1px);
+}
+.btn.primary {
+    background: var(--text);
+    color: var(--bg-card);
+    border-color: var(--text);
+    font-weight: 400;
+}
+.btn.primary:hover {
+    background: var(--accent);
+    border-color: var(--accent);
+    color: #fff;
+    box-shadow: 0 6px 20px rgba(37, 99, 235, 0.28);
+}
+
+/* ─── LINKS ROW ─────────────────────────────────────────── */
+.links-container {
+    display: flex;
+    align-items: center;
+    gap: 0.65rem;
+    flex-wrap: wrap;
+    animation: fadeUp 0.5s ease 0.3s both;
+}
+
+.play-game {
+    animation: fadeUp 0.5s ease 0.35s both;
+}
+
+/* ─── COLOR PICKER (game) ───────────────────────────────── */
+.color-div {
+    display: flex;
+    flex-direction: column;
+    gap: 0.7rem;
+    padding: 1.1rem 1.35rem;
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    background: var(--bg-card);
+    width: fit-content;
+    box-shadow: var(--shadow);
+}
+.color-div h4 {
+    font-family: "Archivo", sans-serif;
+    font-size: 0.75rem;
+    color: var(--muted);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    font-weight: 400;
+}
+.color-row {
+    display: flex;
+    align-items: center;
+    gap: 0.85rem;
+}
+.color-div input[type="color"] {
+    width: 56px;
+    height: 38px;
+    border: 1px solid var(--border);
+    border-radius: var(--radius-sm);
+    background: none;
+    cursor: pointer;
+    padding: 2px;
+}
+.color-div p {
+    font-size: 0.78rem;
+    color: var(--accent);
+}
+
+/* ═════════════════════════════════════════════════════════
+   SECTION TITLES
+   ═════════════════════════════════════════════════════════ */
+.section-title {
+    font-family: "Clash Display", sans-serif;
+    font-weight: 600;
+    font-size: 1.85rem;
+    color: var(--text);
+    letter-spacing: -0.015em;
+    line-height: 1.1;
+    display: flex;
+    align-items: baseline;
+    gap: 1.1rem;
+}
+.section-title::after {
+    content: "";
+    flex: 1;
+    height: 1px;
+    background: var(--border);
+    transform: translateY(-0.4em);
+}
+
+/* ═════════════════════════════════════════════════════════
+   EXPERIENCE — TIMELINE
+   ═════════════════════════════════════════════════════════ */
+.timeline {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    border-left: 1px solid var(--border);
+    padding-left: 0;
+}
+
+.timeline-item {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 0.6rem;
+    padding: 1.6rem 0 1.6rem 1.75rem;
+    position: relative;
+    border-bottom: 1px solid var(--border);
+    transition: background 0.2s ease;
+}
+.timeline-item:last-child {
+    border-bottom: none;
+}
+
+.timeline-item::before {
+    content: "";
+    position: absolute;
+    left: -5px;
+    top: 1.95rem;
+    width: 9px;
+    height: 9px;
+    background: var(--bg);
+    border: 2px solid var(--border-mid);
+    border-radius: 50%;
+    transition: all 0.2s ease;
+}
+.timeline-item:hover::before {
+    background: var(--accent);
+    border-color: var(--accent);
+}
+
+.timeline-meta {
+    display: flex;
+    flex-direction: column;
+    gap: 0.2rem;
+    font-size: 0.8rem;
+    color: var(--muted);
+    letter-spacing: 0.02em;
+}
+.timeline-date {
+    color: var(--muted-2);
+}
+.timeline-place {
+    color: var(--text-2);
+    font-weight: 400;
+}
+
+.timeline-body {
+    display: flex;
+    flex-direction: column;
+    gap: 0.7rem;
+}
+
+.timeline-role {
+    font-family: "Clash Display", sans-serif;
+    font-weight: 600;
+    font-size: 1.4rem;
+    color: var(--text);
+    line-height: 1.2;
+    letter-spacing: -0.01em;
+}
+
+.timeline-desc {
+    font-size: 0.98rem;
+    color: var(--text-2);
+    line-height: 1.75;
+    font-weight: 400;
+    max-width: 600px;
+}
+
+@media (min-width: 640px) {
+    .timeline-item {
+        grid-template-columns: 175px 1fr;
+        gap: 2.25rem;
+    }
+    .timeline-meta {
+        padding-top: 0.4rem;
+    }
+}
+
+/* ═════════════════════════════════════════════════════════
+   SKILLS TABLE
+   ═════════════════════════════════════════════════════════ */
+.table-wrap {
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow);
+    overflow: hidden;
+    background: var(--bg-card);
+}
+.skills-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.95rem;
+}
+.skills-table th {
+    text-align: left;
+    padding: 0.85rem 1.3rem;
+    font-size: 0.72rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--muted);
+    border-bottom: 1px solid var(--border);
+    background: var(--bg-subtle);
+    font-weight: 400;
+}
+.skills-table td {
+    padding: 1rem 1.3rem;
+    border-bottom: 1px solid var(--border);
+    color: var(--text-2);
+    vertical-align: top;
+}
+.skills-table td:first-child {
+    color: var(--text);
+    white-space: nowrap;
+    font-weight: 400;
+    width: 165px;
+}
+.skills-table tr:last-child td {
+    border-bottom: none;
+}
+.skills-table tr:hover td {
+    background: var(--bg-hover);
+}
+
+/* ═════════════════════════════════════════════════════════
+   PROJECT CARDS
+   ═════════════════════════════════════════════════════════ */
+.cards-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 1.4rem;
+}
+
+.project-card {
+    display: grid;
+    grid-template-columns: 1fr;
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    background: var(--bg-card);
+    overflow: hidden;
+    transition:
+        box-shadow 0.25s ease,
+        transform 0.25s ease,
+        border-color 0.25s ease;
+    box-shadow: var(--shadow-sm);
+}
+.project-card:hover {
+    border-color: var(--border-mid);
+    box-shadow: var(--shadow-lg);
+    transform: translateY(-2px);
+}
+
+@media (min-width: 580px) {
+    .project-card {
+        grid-template-columns: 1fr 215px;
+    }
+}
+
+.card-body {
+    padding: 1.6rem 1.7rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+}
+
+.card-date {
+    font-size: 0.72rem;
+    color: var(--muted);
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+}
+
+.card-title {
+    font-family: "Clash Display", sans-serif;
+    font-weight: 600;
+    font-size: 1.5rem;
+    color: var(--text);
+    letter-spacing: -0.015em;
+    line-height: 1.2;
+}
+
+.card-desc {
+    font-size: 0.95rem;
+    color: var(--text-2);
+    line-height: 1.7;
+    font-weight: 400;
+}
+
+/* ─── TECH TAGS ─────────────────────────────────────────── */
+.tech-list {
+    display: flex;
+    align-items: center;
+    gap: 0.45rem;
+    flex-wrap: wrap;
+}
+.tech-tag {
+    font-size: 0.74rem;
+    padding: 0.25rem 0.7rem;
+    border-radius: var(--radius-pill);
+    border: 1px solid var(--border);
+    color: var(--muted);
+    background: var(--bg-subtle);
+    font-family: "Archivo", sans-serif;
+    transition:
+        border-color 0.15s ease,
+        color 0.15s ease,
+        background 0.15s ease;
+}
+.project-card:hover .tech-tag,
+.timeline-item:hover .tech-tag {
+    border-color: var(--accent-2);
+    color: var(--accent);
+    background: var(--accent-soft);
+}
+
+.project-links {
+    display: flex;
+    gap: 0.65rem;
+    align-items: center;
+    padding-top: 0.4rem;
+    flex-wrap: wrap;
+}
+
+/* ─── PROJECT IMAGE ─────────────────────────────────────── */
+.img-div {
+    border-left: 1px solid var(--border);
+    overflow: hidden;
+    background: var(--bg-subtle);
+    min-height: 170px;
+}
+.img-div img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: saturate(0.85);
+    transition:
+        filter 0.35s ease,
+        transform 0.5s ease;
+}
+.project-card:hover .img-div img {
+    filter: saturate(1);
+    transform: scale(1.04);
+}
+
+/* ═════════════════════════════════════════════════════════
+   EXTRACURRICULARS
+   ═════════════════════════════════════════════════════════ */
+.extra-grid {
+    list-style: none;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.1rem;
+}
+@media (min-width: 580px) {
+    .extra-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+.extra-card {
+    padding: 1.6rem 1.7rem;
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    background: var(--bg-card);
+    box-shadow: var(--shadow-sm);
+    transition: all 0.2s ease;
+    display: flex;
+    flex-direction: column;
+    gap: 0.7rem;
+}
+.extra-card:hover {
+    border-color: var(--accent-2);
+    box-shadow: var(--shadow);
+    transform: translateY(-2px);
+}
+
+.extra-icon {
+    width: 42px;
+    height: 42px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--accent-soft);
+    color: var(--accent);
+    border-radius: var(--radius);
+    font-size: 1.1rem;
+}
+
+.extra-card h3 {
+    font-family: "Clash Display", sans-serif;
+    font-weight: 600;
+    font-size: 1.3rem;
+    color: var(--text);
+    letter-spacing: -0.01em;
+    line-height: 1.25;
+}
+
+.extra-card p {
+    font-size: 0.92rem;
+    color: var(--text-2);
+    line-height: 1.7;
+    font-weight: 400;
+}
+
+/* ═════════════════════════════════════════════════════════
+   FOOTER
+   ═════════════════════════════════════════════════════════ */
+footer {
+    padding-top: 2rem;
+    padding-bottom: 2.75rem;
+    border-top: 1px solid var(--border);
+    display: flex;
+    justify-content: center;
+}
+footer p {
+    font-size: 0.82rem;
+    color: var(--muted);
+}
+footer a {
+    color: var(--accent);
+    text-decoration: none;
+}
+footer a:hover {
+    text-decoration: underline;
+}
+
+/* ═════════════════════════════════════════════════════════
+   RESPONSIVE — MOBILE
+   ═════════════════════════════════════════════════════════ */
+@media (max-width: 579px) {
+    header,
+    main,
+    footer {
+        padding-left: 1.25rem;
+        padding-right: 1.25rem;
+    }
+    main {
+        gap: 4.5rem;
+        padding-top: 2.75rem;
+        padding-bottom: 4.5rem;
+    }
+    .img-div {
+        border-left: none;
+        border-top: 1px solid var(--border);
+        height: 200px;
+    }
+    .timeline {
+        padding-left: 0;
+    }
+    .card-body,
+    .extra-card {
+        padding: 1.35rem 1.4rem;
+    }
+}

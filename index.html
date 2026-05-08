@@ -1,0 +1,395 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Rohan Chaudhary — Portfolio</title>
+        <meta
+            name="description"
+            content="Software Engineer and Data Scientist based in Houston."
+        />
+
+        <link
+            href="https://api.fontshare.com/v2/css?f[]=archivo@400&f[]=clash-display@600&display=swap"
+            rel="stylesheet"
+        />
+
+        <link rel="stylesheet" href="styles.css" />
+
+        <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+            integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
+            crossorigin="anonymous"
+            referrerpolicy="no-referrer"
+        />
+    </head>
+    <body>
+        <!-- ─────────── HEADER ─────────── -->
+        <header>
+            <a class="logo" href="/"><span>R</span>ohan C.</a>
+            <nav>
+                <a
+                    target="_blank"
+                    href="https://github.com/BagelSamurai"
+                    aria-label="GitHub"
+                >
+                    <i class="fa-brands fa-github"></i>
+                </a>
+                <a
+                    target="_blank"
+                    href="https://www.linkedin.com/in/rohan-codes/"
+                    aria-label="LinkedIn"
+                >
+                    <i class="fa-brands fa-linkedin"></i>
+                </a>
+            </nav>
+        </header>
+
+        <main>
+            <!-- ─────────── INTRO ─────────── -->
+            <section class="intro">
+                <div class="intro-badge">
+                    <span class="dot"></span>
+                    Available for summer 2026
+                </div>
+
+                <div class="intro-header">
+                    <h1>Hello, I'm <em>Rohan</em></h1>
+                    <p class="intro-role">
+                        Software Engineer &amp; Data Scientist
+                    </p>
+                </div>
+
+                <p class="intro-description">
+                    I build full-stack applications and data-driven systems. CS
+                    &amp; Math grad from UH, heading into Rice MCS this fall.
+                    Based in Houston — when I'm not coding I'm gaming, at the
+                    gym, or spending time with family and friends.
+                </p>
+
+                <div class="links-container">
+                    <a
+                        class="btn primary"
+                        target="_blank"
+                        href="mailto:rohanc1021@gmail.com"
+                    >
+                        <i class="fa-solid fa-envelope"></i> Email me
+                    </a>
+                    <a
+                        class="btn"
+                        target="_blank"
+                        href="https://github.com/BagelSamurai"
+                    >
+                        <i class="fa-brands fa-github"></i> GitHub
+                    </a>
+                    <a
+                        class="btn"
+                        target="_blank"
+                        href="https://www.linkedin.com/in/rohan-codes/"
+                    >
+                        <i class="fa-brands fa-linkedin"></i> LinkedIn
+                    </a>
+                </div>
+
+                <div class="play-game">
+                    <button class="btn" id="play-game" onclick="playGame()">
+                        <i class="fa-solid fa-gamepad"></i> Play game?
+                    </button>
+                </div>
+
+                <div class="color-div" style="display: none">
+                    <h4>Pick a color</h4>
+                    <div class="color-row">
+                        <input
+                            type="color"
+                            id="color-picker"
+                            onchange="changeColor()"
+                            value="#2563eb"
+                        />
+                        <p style="display: none">Great... now it's ruined 👿</p>
+                        <button
+                            class="btn"
+                            style="display: none"
+                            onclick="resetColor()"
+                        >
+                            Reset
+                        </button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ─────────── EXPERIENCE ─────────── -->
+            <section>
+                <h2 class="section-title">Experience</h2>
+
+                <ol class="timeline">
+                    <li class="timeline-item">
+                        <div class="timeline-meta">
+                            <span class="timeline-date"
+                                >Aug 2024 — Present</span
+                            >
+                            <span class="timeline-place"
+                                >University of Houston</span
+                            >
+                        </div>
+                        <div class="timeline-body">
+                            <h3 class="timeline-role">
+                                Data Science Teaching Assistant
+                            </h3>
+                            <p class="timeline-desc">
+                                Mentor a large student cohort through data
+                                science fundamentals, statistics, and Python.
+                                Co-author course textbook material and lead
+                                office hours on machine learning workflows.
+                            </p>
+                            <div class="tech-list">
+                                <span class="tech-tag">Python</span>
+                                <span class="tech-tag">Pandas</span>
+                                <span class="tech-tag">Statistics</span>
+                            </div>
+                        </div>
+                    </li>
+
+                    <li class="timeline-item">
+                        <div class="timeline-meta">
+                            <span class="timeline-date">2024</span>
+                            <span class="timeline-place">AWS</span>
+                        </div>
+                        <div class="timeline-body">
+                            <h3 class="timeline-role">
+                                AWS Certified Solutions Architect
+                            </h3>
+                            <p class="timeline-desc">
+                                Earned associate-level certification covering
+                                cloud architecture design, deployment, and cost
+                                optimization across AWS services.
+                            </p>
+                            <div class="tech-list">
+                                <span class="tech-tag">AWS</span>
+                                <span class="tech-tag">Cloud</span>
+                            </div>
+                        </div>
+                    </li>
+
+                    <li class="timeline-item">
+                        <div class="timeline-meta">
+                            <span class="timeline-date">— Add role —</span>
+                            <span class="timeline-place">Company name</span>
+                        </div>
+                        <div class="timeline-body">
+                            <h3 class="timeline-role">Position title</h3>
+                            <p class="timeline-desc">
+                                Description of what you built or owned — focus
+                                on outcomes and technologies. Quantify when
+                                possible.
+                            </p>
+                            <div class="tech-list">
+                                <span class="tech-tag">Tech 1</span>
+                                <span class="tech-tag">Tech 2</span>
+                            </div>
+                        </div>
+                    </li>
+                </ol>
+            </section>
+
+            <!-- ─────────── SKILLS ─────────── -->
+            <section>
+                <h2 class="section-title">Skills</h2>
+                <div class="table-wrap">
+                    <table class="skills-table">
+                        <thead>
+                            <tr>
+                                <th>Area</th>
+                                <th>Technologies</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>JavaScript</td>
+                                <td>React · Next.js · Node.js · Express</td>
+                            </tr>
+                            <tr>
+                                <td>Web &amp; Cloud</td>
+                                <td>
+                                    TailwindCSS · Firebase · PostgreSQL · Docker
+                                    · Azure · CI/CD
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Python &amp; ML</td>
+                                <td>
+                                    Pandas · Scikit-learn · TensorFlow · Data
+                                    Analysis · Deep Learning
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+            <!-- ─────────── PROJECTS ─────────── -->
+            <section>
+                <h2 class="section-title">Latest Projects</h2>
+                <div class="cards-grid">
+                    <div class="project-card">
+                        <div class="card-body">
+                            <span class="card-date">May 2, 2026</span>
+                            <h3 class="card-title">Trainer Cards</h3>
+                            <div class="tech-list">
+                                <span class="tech-tag">Next.js</span>
+                                <span class="tech-tag">TypeScript</span>
+                            </div>
+                            <p class="card-desc">
+                                Build a 6-Pokémon trainer card, theme it five
+                                different ways, and export it as a PNG. Every
+                                customization renders live on the card.
+                            </p>
+                            <div class="project-links">
+                                <a
+                                    class="btn primary"
+                                    target="_blank"
+                                    href="https://trainer-cards.vercel.app/"
+                                    >Live
+                                    <i
+                                        class="fa-solid fa-arrow-up-right-from-square"
+                                    ></i
+                                ></a>
+                                <a
+                                    class="btn"
+                                    target="_blank"
+                                    href="https://github.com/BagelSamurai/Trainer-Cards"
+                                >
+                                    <i class="fa-brands fa-github"></i> GitHub
+                                </a>
+                            </div>
+                        </div>
+                        <div class="img-div">
+                            <img
+                                src="public/trainer-cards.png"
+                                alt="Trainer Cards thumbnail"
+                            />
+                        </div>
+                    </div>
+
+                    <div class="project-card">
+                        <div class="card-body">
+                            <span class="card-date">— , 2026</span>
+                            <h3 class="card-title">Project Title</h3>
+                            <div class="tech-list">
+                                <span class="tech-tag">React</span>
+                                <span class="tech-tag">Python</span>
+                            </div>
+                            <p class="card-desc">
+                                Add your project description here.
+                            </p>
+                            <div class="project-links">
+                                <a class="btn primary" target="_blank" href="#"
+                                    >Live
+                                    <i
+                                        class="fa-solid fa-arrow-up-right-from-square"
+                                    ></i
+                                ></a>
+                                <a class="btn" target="_blank" href="#">
+                                    <i class="fa-brands fa-github"></i> GitHub
+                                </a>
+                            </div>
+                        </div>
+                        <div class="img-div">
+                            <img src="" alt="project thumbnail" />
+                        </div>
+                    </div>
+
+                    <div class="project-card">
+                        <div class="card-body">
+                            <span class="card-date">— , 2026</span>
+                            <h3 class="card-title">Project Title</h3>
+                            <div class="tech-list">
+                                <span class="tech-tag">Node.js</span>
+                                <span class="tech-tag">PostgreSQL</span>
+                            </div>
+                            <p class="card-desc">
+                                Add your project description here.
+                            </p>
+                            <div class="project-links">
+                                <a class="btn primary" target="_blank" href="#"
+                                    >Live
+                                    <i
+                                        class="fa-solid fa-arrow-up-right-from-square"
+                                    ></i
+                                ></a>
+                                <a class="btn" target="_blank" href="#">
+                                    <i class="fa-brands fa-github"></i> GitHub
+                                </a>
+                            </div>
+                        </div>
+                        <div class="img-div">
+                            <img src="" alt="project thumbnail" />
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ─────────── EXTRACURRICULARS ─────────── -->
+            <section>
+                <h2 class="section-title">Extracurriculars</h2>
+                <ul class="extra-grid">
+                    <li class="extra-card">
+                        <div class="extra-icon">
+                            <i class="fa-solid fa-dumbbell"></i>
+                        </div>
+                        <h3>Powerlifting &amp; Gym</h3>
+                        <p>
+                            Consistent strength training — lifting tracks and
+                            progressive overload routines.
+                        </p>
+                    </li>
+                    <li class="extra-card">
+                        <div class="extra-icon">
+                            <i class="fa-solid fa-gamepad"></i>
+                        </div>
+                        <h3>Competitive Pokémon</h3>
+                        <p>
+                            Building team comps and analyzing meta data through
+                            ML models on Smogon stats.
+                        </p>
+                    </li>
+                    <li class="extra-card">
+                        <div class="extra-icon">
+                            <i class="fa-solid fa-chalkboard-user"></i>
+                        </div>
+                        <h3>Teaching &amp; Mentorship</h3>
+                        <p>
+                            Co-author of course textbook material and TA for
+                            data science classes at UH.
+                        </p>
+                    </li>
+                    <li class="extra-card">
+                        <div class="extra-icon">
+                            <i class="fa-solid fa-book-open"></i>
+                        </div>
+                        <h3>ML Reading Group</h3>
+                        <p>
+                            Working through deep learning theory, mathematical
+                            foundations, and primary literature.
+                        </p>
+                    </li>
+                </ul>
+            </section>
+        </main>
+
+        <footer>
+            <p>
+                Built by <a href="">Rohan Chaudhary</a> ·
+                <a
+                    target="_blank"
+                    href="https://github.com/BagelSamurai/Personal-Portfolio"
+                    >View source
+                    <i class="fa-solid fa-arrow-up-right-from-square"></i
+                ></a>
+            </p>
+        </footer>
+
+        <script src="script.js"></script>
+    </body>
+</html>
